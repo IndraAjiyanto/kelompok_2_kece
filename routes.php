@@ -4,6 +4,9 @@
 require_once 'app/controllers/OrderController.php';
 
 
+
+$controller = new UserController();
+
 $order = new OrderController();
 
 require_once 'app/controllers/ProdukController.php';
@@ -12,6 +15,7 @@ $produk = new ProdukController();
 require_once 'app/controllers/KategoriController.php';
 
 $kategori = new KategoriController();
+
 
 $url = $_SERVER['REQUEST_URI'];
 $requestMethod = $_SERVER['REQUEST_METHOD'];

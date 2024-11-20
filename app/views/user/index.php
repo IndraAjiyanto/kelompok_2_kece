@@ -1,0 +1,13 @@
+<!-- app/views/user/index.php -->
+<h2>Daftar User</h2>
+<a href="/user/create">Tambah User Baru</a>
+<ul>
+    <?php foreach ($users as $user): ?>
+        <div>
+            <p><?= htmlspecialchars($user['nama']) ?> - <?= htmlspecialchars($user['email'])?> - <?= htmlspecialchars($user['password'])?> - <?= htmlspecialchars($user['alamat'])?>
+            <a href="/user/edit/<?php echo $user['id_user']; ?>">Edit</a> |
+            <a href="/user/delete/<?php echo $user['id_user']; ?>" onclick="return confirm('Are you sure?')">Delete</a>
+            </p>
+        </div>
+    <?php endforeach; ?>
+</ul>
