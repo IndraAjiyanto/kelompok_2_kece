@@ -1,10 +1,12 @@
 <?php
 // routes.php
 
+require_once 'app/controllers/ProdukController.php';
+
+$produk = new ProdukController();
 require_once 'app/controllers/KategoriController.php';
 
 $kategori = new KategoriController();
-
 
 $url = $_SERVER['REQUEST_URI'];
 $requestMethod = $_SERVER['REQUEST_METHOD'];
@@ -39,8 +41,10 @@ if ($url == '/user/index' || $url == '/') {
 } elseif (preg_match('/\/kategori\/delete\/(\d+)/', $url, $matches) && $requestMethod == 'GET') {
     $kategoriId = $matches[1];
     $kategori->delete($kategoriId);
-} elseif ($url == 'produk/index'){
+} elseif ($url == '/produk/index'){
     $produk->index();
+} elseif ($url == '/produk/store' && $requestMethod == 'POST') {
+    $produk->store();
 } elseif ($url == '/produk/create' && $requestMethod == 'GET'){
     $produk->create();
 } elseif (preg_match('/\/produk\/edit\/(\d+)/', $url, $matches) && $requestMethod == 'GET') {
