@@ -1,6 +1,11 @@
 <?php
 // routes.php
 
+require_once 'app/controllers/OrderController.php';
+
+
+$order = new OrderController();
+
 require_once 'app/controllers/ProdukController.php';
 
 $produk = new ProdukController();
@@ -56,11 +61,13 @@ if ($url == '/user/index' || $url == '/') {
 } elseif (preg_match('/\/produk\/delete\/(\d+)/', $url, $matches) && $requestMethod == 'GET') {
     $produkId = $matches[1];
     $produk->delete($produkId);
-} elseif ($url == 'order/index'){
+} elseif ($url == '/order/index'){
     $order->index();
 } elseif ($url == '/order/create' && $requestMethod == 'GET'){
     $order->create();
-} elseif (preg_match('/\/order\/edit\/(\d+)/', $url, $matches) && $requestMethod == 'GET') {
+}   elseif ($url == '/order/store' && $requestMethod == 'POST') {
+    $order->store();
+}   elseif (preg_match('/\/order\/edit\/(\d+)/', $url, $matches) && $requestMethod == 'GET') {
     $orderId = $matches[1];
     $order->edit($orderId);
 } elseif (preg_match('/\/order\/update\/(\d+)/', $url, $matches) && $requestMethod == 'POST') {
