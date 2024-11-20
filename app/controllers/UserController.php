@@ -22,7 +22,9 @@ class UserController {
     public function store() {
         $name = $_POST['name'];
         $email = $_POST['email'];
-        $this->userModel->add($name, $email);
+        $password = $_POST['password'];
+        $alamat = $_POST['alamat'];
+        $this->userModel->add($name, $email, $password, $alamat);
         header('Location: /user/index');
     }
     // Show the edit form with the user data
