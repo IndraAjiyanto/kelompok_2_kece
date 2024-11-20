@@ -9,16 +9,18 @@ class ProdukController {
 
     public function __construct() {
         $this->produkModel = new Produk();
-         $this->kategoriModel = new Produk();
+         $this->kategoriModel = new Kategori();
     }
 
     public function index() {
         $produks = $this->produkModel->getAllProduks();
+        $kategori = $this->kategoriModel;
         require_once '../app/views/produk/index.php';
 
     }
 
     public function create() {
+        $kategori = $this->kategoriModel->getAllKategori();
         require_once '../app/views/produk/create.php';
     }
 
@@ -33,7 +35,8 @@ class ProdukController {
     }
     // Show the edit form with the produk data
     public function edit($id_produk) {
-        $produk = $this->produkModel->find($id_produk); // Assume find() gets produk by ID
+        $produk = $this->produkModel->find($id_produk);
+        $kategori = $this->kategoriModel->getAllKategori(); // Assume find() gets produk by ID
         require_once __DIR__ . '/../views/produk/edit.php';
     }
 
