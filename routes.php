@@ -5,6 +5,14 @@ require_once 'app/controllers/OrderController.php';
 
 
 $order = new OrderController();
+
+require_once 'app/controllers/ProdukController.php';
+
+$produk = new ProdukController();
+require_once 'app/controllers/KategoriController.php';
+
+$kategori = new KategoriController();
+
 $url = $_SERVER['REQUEST_URI'];
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
@@ -23,9 +31,11 @@ if ($url == '/user/index' || $url == '/') {
 } elseif (preg_match('/\/user\/delete\/(\d+)/', $url, $matches) && $requestMethod == 'GET') {
     $userId = $matches[1];
     $controller->delete($userId);
-} elseif ($url == 'kategori/index'){
+} elseif ($url == '/kategori/index'){
     $kategori->index();
-} elseif ($url == '/kategori/create' && $requestMethod == 'GET'){
+} elseif ($url == '/kategori/store' && $requestMethod == 'POST') {
+    $kategori->store();
+}  elseif ($url == '/kategori/create' && $requestMethod == 'GET'){
     $kategori->create();
 } elseif (preg_match('/\/kategori\/edit\/(\d+)/', $url, $matches) && $requestMethod == 'GET') {
     $kategoriId = $matches[1];
@@ -36,8 +46,10 @@ if ($url == '/user/index' || $url == '/') {
 } elseif (preg_match('/\/kategori\/delete\/(\d+)/', $url, $matches) && $requestMethod == 'GET') {
     $kategoriId = $matches[1];
     $kategori->delete($kategoriId);
-} elseif ($url == 'produk/index'){
+} elseif ($url == '/produk/index'){
     $produk->index();
+} elseif ($url == '/produk/store' && $requestMethod == 'POST') {
+    $produk->store();
 } elseif ($url == '/produk/create' && $requestMethod == 'GET'){
     $produk->create();
 } elseif (preg_match('/\/produk\/edit\/(\d+)/', $url, $matches) && $requestMethod == 'GET') {
