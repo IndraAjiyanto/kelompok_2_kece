@@ -1,21 +1,25 @@
 <?php
 // app/controllers/UserController.php
 require_once '../app/models/Order.php';
+require_once '../app/models/produk.php';
 
 class OrderController {
     private $orderModel;
+    private $produkModel;
 
     public function __construct() {
         $this->orderModel = new Order();
+        $this->produkModel = new Produk();
     }
 
     public function index() {
         $orders = $this->orderModel->getAllOrders();
+        $produk = $this->produkModel;
         require_once '../app/views/order/index.php';
-
     }
 
     public function create() {
+        $produk = $this->produkModel->getAllProduks();
         require_once '../app/views/order/create.php';
     }
 
@@ -29,6 +33,7 @@ class OrderController {
     // Show the edit form with the user data
     public function edit($id) {
         $order = $this->orderModel->find($id); // Assume find() gets user by ID
+        $produk = $this->produkModel->getAllProduks();
         require_once __DIR__ . '/../views/order/edit.php';
     }
 
