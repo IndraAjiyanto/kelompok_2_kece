@@ -1,12 +1,11 @@
 <?php
 // routes.php
 
-require_once 'app/controllers/UserController.php';
+require_once 'app/controllers/KategoriController.php';
 
-$controller = new UserController();
 $kategori = new KategoriController();
-$produk = new ProdukController();
-$order = new OrderController();
+
+
 $url = $_SERVER['REQUEST_URI'];
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
@@ -25,9 +24,11 @@ if ($url == '/user/index' || $url == '/') {
 } elseif (preg_match('/\/user\/delete\/(\d+)/', $url, $matches) && $requestMethod == 'GET') {
     $userId = $matches[1];
     $controller->delete($userId);
-} elseif ($url == 'kategori/index'){
+} elseif ($url == '/kategori/index'){
     $kategori->index();
-} elseif ($url == '/kategori/create' && $requestMethod == 'GET'){
+} elseif ($url == '/kategori/store' && $requestMethod == 'POST') {
+    $kategori->store();
+}  elseif ($url == '/kategori/create' && $requestMethod == 'GET'){
     $kategori->create();
 } elseif (preg_match('/\/kategori\/edit\/(\d+)/', $url, $matches) && $requestMethod == 'GET') {
     $kategoriId = $matches[1];
