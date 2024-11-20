@@ -51,4 +51,12 @@ class Produk{
         $stmt->bindParam(':id_produk', $id_produk);
         return $stmt->execute();
     }
+
+    
+    public function findNama($id){
+        $query = $this->db->prepare("SELECT nama_produk FROM `produk` WHERE id_produk = :id");
+        $query->bindParam(':id', $id, PDO::PARAM_INT);
+        $query->execute();
+        return $query->fetchColumn();
+    }
 }

@@ -8,6 +8,17 @@
 <body>
     <h2>Edit User</h2>
     <form action="/order/update/<?php echo $order['id_order']; ?>" method="POST">
+
+    <label for="produk">Pilih Produk</label>
+    <select id="produk" name="id_produk">
+        <?php foreach($produk as $row){?>
+        <option value="<?php echo $row['nama_produk']?>"><?php echo $row['nama_produk']?></option>
+        <?php
+    };
+    ?>
+    </select>
+
+
         <label for="id_produk">Id Produk:</label>
         <input type="number" id="id_produk" name="id_produk" value="<?php echo $order['id_produk']; ?>" required>
         <br>
