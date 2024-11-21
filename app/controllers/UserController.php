@@ -1,12 +1,15 @@
 <?php
 // app/controllers/UserController.php
 require_once '../app/models/User.php';
+require_once '../app/models/Order.php';
 
 class UserController {
     private $userModel;
+    private $orderModel;
 
     public function __construct() {
         $this->userModel = new User();
+        $this->orderModel = new Order();
     }
 
     public function index() {
@@ -19,12 +22,12 @@ class UserController {
         require_once '../app/views/user/create.php';
     }
 
-    public function store() {
-        $name = $_POST['name'];
+    public function store() { 
+        $nama = $_POST['nama'];
         $email = $_POST['email'];
         $password = $_POST['password'];
         $alamat = $_POST['alamat'];
-        $this->userModel->add($name, $email, $password, $alamat);
+        $this->userModel->add($nama, $email, $password, $alamat);
         header('Location: /user/index');
     }
     // Show the edit form with the user data
@@ -45,11 +48,25 @@ class UserController {
 
     // Process delete request
     public function delete($id) {
-        $deleted = $this->userModel->delete($id);
-        if ($deleted) {
-            header("Location: /user/index"); // Redirect to user list
-        } else {
-            echo "Failed to delete user.";
+        // Cek apakah user masih digunakan di tabel 'order'
+        $isUsedInOrder = $this->userModel->checkIfUserInOrder($id);
+        $isUsedInProduk = $this->userModel->checkIfUserInProduk($id);
+        
+        if ($isUsedInOrder > 0) {
+            // Jika user masih digunakan di tabel order, tampilkan pesan error
+            header("Location: /user/index"); 
+        } elseif ($isUsedInProduk > 0){
+            header("Location: /user/index");
+        }
+        else {
+            // Jika user tidak digunakan, lanjutkan dengan penghapusan
+            $deleted = $this->userModel->delete($id);
+            if ($deleted) {
+                header("Location: /user/index"); // Redirect ke halaman produk setelah penghapusan
+                exit;
+            } else {
+                echo "Gagal menghapus user.";
+            }
         }
     }
 }
