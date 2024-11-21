@@ -15,7 +15,13 @@
     <input type="text" name="deskripsi" id="deskripsi" required>
     <label for="harga">Harga:</label>
     <input type="text" name="harga" id="harga" required>
-    <label for="id_user">Id User:</label>
-    <input type="number" name="id_user" id="id_user" required>
+    <label for="user">Choose a fruit:</label>
+    <select id="user" name="id_user">
+        <?php foreach($user as $row){?>
+        <option value="<?php echo $row['id_user']?>"><?php echo $row['nama']?></option>
+        <?php
+    };
+    ?>
+    </select>
     <button type="submit">Simpan</button>
 </form>

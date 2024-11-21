@@ -39,12 +39,14 @@
                value="<?php echo $produk['harga']; ?>" required>
         <br>
 
-        <!-- Input ID User -->
-        <label for="id_user">ID User:</label>
-        <input type="number" id="id_user" name="id_user" 
-               value="<?php echo $produk['id_user']; ?>" required>
+        <!-- Pilih User -->
+        <label for="user">Pilih User:</label>
+        <select id="user" name="id_user" required>
+            <?php foreach ($user as $row) { ?>
+                <option value="<?php echo $row['id_user']; ?>"><?php echo $row['nama']?></option>
+            <?php }; ?>
+        </select>
         <br>
-
         <!-- Tombol Submit -->
         <button type="submit">Update</button>
     </form>
