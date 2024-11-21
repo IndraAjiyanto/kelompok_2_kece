@@ -1,13 +1,22 @@
 <!-- app/views/user/index.php -->
-<h2>Daftar Pengguna</h2>
-<a href="/order/create">Tambah Pengguna Baru</a>
-<ul>
-    <?php foreach ($orders as $order): ?>
-        <div>
-            <p><?= htmlspecialchars($produk->findNama($order['id_produk'])) ?> - <?= htmlspecialchars($user->findNama($order['id_user'])) ?> - <?= htmlspecialchars($order['status']) ?>
-            <a href="/order/edit/<?php echo $order['id_order']; ?>">Edit</a> |
-            <a href="/order/delete/<?php echo $order['id_order']; ?>" onclick="return confirm('Are you sure?')">Delete</a>
-            </p>
-        </div>
-    <?php endforeach; ?>
-</ul>
+<thead>
+            <tr>
+                <th><center>Nama Produk</center></th>
+                <th><center>Nama Pembeli</center></th>
+                <th><center>Status Pembelian</center></th>
+                <th><center>Aksi</center></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($orders as $order): ?>
+                <tr>
+                    <td><?= htmlspecialchars($produk->findNama($order['id_produk'])) ?></td>
+                    <td><?= htmlspecialchars($user->findNama($order['id_user'])) ?></td>
+                    <td><?= htmlspecialchars($order['status']) ?></td>
+                    <td>
+                        <a href="/order/edit/<?php echo $order['id_order']; ?>" class="btn btn-warning btn-sm fw-bold">Edit</a>
+                        <a href="/order/delete/<?php echo $order['id_order']; ?>" class="btn btn-danger btn-sm fw-bold" onclick="return confirm('Are you sure?')">Delete</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
