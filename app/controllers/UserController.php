@@ -14,12 +14,23 @@ class UserController {
 
     public function index() {
         $users = $this->userModel->getAllUsers();
-        require_once '../app/views/user/index.php';
-
+        $judul = "user";
+        require_once '../app/views/template/navbar.php';
+        require_once '../app/views/template/table.php';
+        require_once '../app/views/user/index.php';        
+        require_once '../app/views/template/tutup_table.php';        
+        require_once '../app/views/template/footer.php';
+    
     }
 
     public function create() {
+        $judul = "user";
+        $metode = "Tambah";
+        require_once '../app/views/template/navbar.php';
+        require_once '../app/views/template/form.php';
         require_once '../app/views/user/create.php';
+        require_once '../app/views/template/tutup_form.php';
+        require_once '../app/views/template/footer.php';
     }
 
     public function store() { 
@@ -32,8 +43,14 @@ class UserController {
     }
     // Show the edit form with the user data
     public function edit($id) {
-        $user = $this->userModel->find($id); // Assume find() gets user by ID
-        require_once __DIR__ . '/../views/user/edit.php';
+        $user = $this->userModel->find($id);
+        $judul = "user";
+        $metode = "Edit"; // Assume find() gets user by ID
+        require_once '../app/views/template/navbar.php';
+        require_once '../app/views/template/form.php';
+        require_once '../app/views/user/edit.php';
+        require_once '../app/views/template/tutup_form.php';
+        require_once '../app/views/template/footer.php';
     }
 
     // Process the update request

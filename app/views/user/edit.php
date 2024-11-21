@@ -1,18 +1,5 @@
-<!-- app/views/user/edit.php -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit User</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    <div class="container mt-5">
-    <div class="row justify-content-center">
-    <div class="col-md-6">
-        <h2 class="mb-4"><center>Edit User</center></h2>
+
+        
         <form action="/user/update/<?php echo $user['id_user']; ?>" method="POST" class="border p-4 rounded shadow-sm bg-light">
             <div class="mb-3">
                 <label for="nama" class="form-label fw-bold">Nama:</label>
@@ -35,6 +22,6 @@
         </form>
     </div>
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+
+
+
