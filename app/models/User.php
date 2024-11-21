@@ -49,4 +49,37 @@ class User {
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
     }
+     public function checkIfUserInOrder($id){
+        $query = "SELECT COUNT(*) FROM `order` WHERE id_user = :id";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        //ambil hasilnya
+        $count = $stmt->fetchColumn();
+
+        if($count > 0){
+            return 1;
+        }else{
+            return 0;
+        }
+     }
+     public function checkIfUserInProduk($id){
+        $query = "SELECT COUNT(*) FROM `produk` WHERE id_user = :id";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        //ambil hasilnya
+        $count = $stmt->fetchColumn();
+
+        if($count > 0){
+            return 1;
+        }else{
+            return 0;
+        }
+     }
 }
+
