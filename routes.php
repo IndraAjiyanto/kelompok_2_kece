@@ -2,6 +2,8 @@
 // routes.php
 
 require_once 'app/controllers/OrderController.php';
+require_once 'app/controllers/UserController.php';
+
 
 
 
