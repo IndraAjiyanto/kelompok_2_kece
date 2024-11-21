@@ -4,7 +4,7 @@
 <ul>
     <?php foreach ($produks as $produk): ?>
         <div>
-            <p><?= htmlspecialchars($produk['id_kategori']) ?> - <?= htmlspecialchars($produk['nama_produk']) ?> - <?= htmlspecialchars($produk['deskripsi']) ?> - <?= htmlspecialchars($produk['harga']) ?> - <?= htmlspecialchars($produk['id_user']) ?>
+            <p><?= htmlspecialchars($kategori->findKategori($produk['id_kategori'])) ?> - <?= htmlspecialchars($produk['nama_produk']) ?> - <?= htmlspecialchars($produk['deskripsi']) ?> - <?= htmlspecialchars($produk['harga']) ?> - <?= htmlspecialchars($user->findUser ($produk['id_user'])) ?>
             <a href="/produk/edit/<?php echo $produk['id_produk']; ?>">Edit</a> |
             <a href="/produk/delete/<?php echo $produk['id_produk']; ?>" onclick="return confirm('Are you sure?')">Delete</a>
             </p>
