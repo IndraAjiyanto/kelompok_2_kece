@@ -9,11 +9,24 @@ class KategoriController {
 
     public function index() {
         $kategori = $this->KategoriModel->getAllKategori();
+        $judul = "Kategori";
+
+        require_once '../app/views/template/navbar.php';
+        require_once '../app/views/template/table.php';
         require_once '../app/views/kategori/index.php';
+        require_once '../app/views/template/tutup_table.php';
+        require_once '../app/views/template/footer.php';
     }
 
+
     public function create() {
+        $judul = "Kategori";
+        $metode = "Tambah";
+        require_once '../app/views/template/navbar.php';
+        require_once '../app/views/template/form.php';
         require_once '../app/views/kategori/create.php';
+        require_once '../app/views/template/tutup_form.php';
+        require_once '../app/views/template/footer.php';
     }
 
     public function store() {
@@ -26,7 +39,13 @@ class KategoriController {
     // Show the edit form with the kategori data
     public function edit($id) {
         $kategori = $this->KategoriModel->find($id); // Assume find() gets kategori by ID
+        $judul = "Kategori";
+        $metode = "Edit";
+        require_once '../app/views/template/navbar.php';
+        require_once '../app/views/template/form.php';
         require_once __DIR__ . '/../views/kategori/edit.php';
+        require_once '../app/views/template/tutup_form.php';
+        require_once '../app/views/template/footer.php';
     }
 
     // Process the update request
