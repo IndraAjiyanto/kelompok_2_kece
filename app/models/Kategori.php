@@ -44,4 +44,22 @@ class Kategori {
         $stmt->bindParam(':id_kategori', $id);
         return $stmt->execute();
     }
+
+    public function checkIfKategoriInProduk($id) {
+        // Query untuk memeriksa apakah produk ini ada di dalam tabel 'order'
+        $query = "SELECT COUNT(*) FROM produk WHERE id_kategori = :id";
+        
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        
+        // Ambil hasilnya
+        $count = $stmt->fetchColumn();
+
+        if($count > 0 ){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
 }

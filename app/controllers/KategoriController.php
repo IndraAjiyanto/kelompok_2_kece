@@ -22,7 +22,7 @@ class KategoriController {
         $this->KategoriModel->add($namakategori, $deskripsi);
         header('Location: /kategori/index');
     }
-    
+
     // Show the edit form with the kategori data
     public function edit($id) {
         $kategori = $this->KategoriModel->find($id); // Assume find() gets kategori by ID
@@ -36,16 +36,25 @@ class KategoriController {
             header("Location: /kategori/index"); // Redirect to kategori list
         } else {
             echo "Failed to update kategori.";
-        }
+        } 
     }
 
     // Process delete request
     public function delete($id) {
-        $deleted = $this->KategoriModel->delete($id);
-        if ($deleted) {
-            header("Location: /kategori/index"); // Redirect to kategori list
+        $isUsedInProduk = $this->KategoriModel->checkIfKategoriInProduk($id);
+        
+        if ($isUsedInProduk > 0) {
+        
+            header("Location: /kategori/index"); 
         } else {
-            echo "Failed to delete kategori.";
+        
+            $deleted = $this->KategoriModel->delete($id);
+            if ($deleted) {
+                header("Location: /kategori/index"); 
+                exit;
+            } else {
+                echo "Gagal menghapus kategori.";
+            }
         }
     }
 }
