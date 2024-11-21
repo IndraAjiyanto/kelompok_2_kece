@@ -49,6 +49,7 @@ class User {
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
     }
+
      public function checkIfUserInOrder($id){
         $query = "SELECT COUNT(*) FROM `order` WHERE id_user = :id";
 
@@ -81,5 +82,14 @@ class User {
             return 0;
         }
      }
+
+
+    public function findNama($id){
+        $query = $this->db->prepare("SELECT nama FROM `user` WHERE id_user = :id");
+        $query->bindParam(':id', $id, PDO::PARAM_INT);
+        $query->execute();
+        return $query->fetchColumn();
+    }
+
 }
 
