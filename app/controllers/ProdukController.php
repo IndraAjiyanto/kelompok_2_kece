@@ -59,9 +59,9 @@ class ProdukController {
         // Cek apakah produk masih digunakan di tabel 'order'
         $isUsedInOrder = $this->produkModel->checkIfProductInOrder($id_produk);
         
-        if ($isUsedInOrder) {
+        if ($isUsedInOrder > 0) {
             // Jika produk masih digunakan di tabel order, tampilkan pesan error
-            echo "Produk ini tidak bisa dihapus karena masih digunakan di dalam order.";
+            header("Location: /produk/index"); 
         } else {
             // Jika produk tidak digunakan, lanjutkan dengan penghapusan
             $deleted = $this->produkModel->delete($id_produk);

@@ -62,7 +62,7 @@ class Produk{
 
     public function checkIfProductInOrder($id_produk) {
         // Query untuk memeriksa apakah produk ini ada di dalam tabel 'order'
-        $query = "SELECT COUNT(*) FROM order WHERE id_produk = :id_produk";
+        $query = "SELECT COUNT(*) FROM `order` WHERE id_produk = :id_produk";
         
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':id_produk', $id_produk, PDO::PARAM_INT);
@@ -70,8 +70,11 @@ class Produk{
         
         // Ambil hasilnya
         $count = $stmt->fetchColumn();
-        
-        // Jika count lebih besar dari 0, berarti produk masih digunakan di dalam order
-        return $count > 0;
+
+        if($count > 0 ){
+            return 1;
+        }else{
+            return 0;
+        }
     }
 }
