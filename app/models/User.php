@@ -50,8 +50,9 @@ class User {
         return $stmt->execute();
     }
 
-    public function findUser($id){
-        $query = $this->db->prepare("SELECT nama FROM user WHERE id_user = :id");
+
+    public function findNama($id){
+        $query = $this->db->prepare("SELECT nama FROM `user` WHERE id_user = :id");
         $query->bindParam(':id', $id, PDO::PARAM_INT);
         $query->execute();
         return $query->fetchColumn();
