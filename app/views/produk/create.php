@@ -1,8 +1,14 @@
 <!-- app/views/produk/create.php -->
 <h2>Tambah Produk Baru</h2>
 <form action="/produk/store" method="POST">
-    <label for="id_kategori">Id Kategori:</label>
-    <input type="number" name="id_kategori" id="id_kategori" required>
+<label for="kategori">Choose a fruit:</label>
+    <select id="kategori" name="id_kategori">
+        <?php foreach($kategori as $row){?>
+        <option value="<?php echo $row['id_kategori']?>"><?php echo $row['nama_kategori']?></option>
+        <?php
+    };
+    ?>
+    </select>
     <label for="nama_produk">Nama Produk:</label>
     <input type="text" name="nama_produk" id="nama_produk" required>
     <label for="deskripsi">Deskripsi:</label>
