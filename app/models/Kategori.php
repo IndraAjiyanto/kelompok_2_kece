@@ -61,5 +61,11 @@ class Kategori {
         }else{
             return 0;
         }
+
+    public function findKategori($id){
+        $query = $this->db->prepare("SELECT nama_kategori FROM kategori WHERE id_kategori = :id");
+        $query->bindParam(':id', $id, PDO::PARAM_INT);
+        $query->execute();
+        return $query->fetchColumn();
     }
 }

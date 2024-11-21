@@ -1,6 +1,19 @@
 <?php
 // routes.php
 
+require_once 'app/controllers/OrderController.php';
+require_once 'app/controllers/UserController.php';
+
+
+
+
+$controller = new UserController();
+
+$order = new OrderController();
+
+require_once 'app/controllers/ProdukController.php';
+
+$produk = new ProdukController();
 require_once 'app/controllers/KategoriController.php';
 
 $kategori = new KategoriController();
@@ -39,8 +52,10 @@ if ($url == '/user/index' || $url == '/') {
 } elseif (preg_match('/\/kategori\/delete\/(\d+)/', $url, $matches) && $requestMethod == 'GET') {
     $kategoriId = $matches[1];
     $kategori->delete($kategoriId);
-} elseif ($url == 'produk/index'){
+} elseif ($url == '/produk/index'){
     $produk->index();
+} elseif ($url == '/produk/store' && $requestMethod == 'POST') {
+    $produk->store();
 } elseif ($url == '/produk/create' && $requestMethod == 'GET'){
     $produk->create();
 } elseif (preg_match('/\/produk\/edit\/(\d+)/', $url, $matches) && $requestMethod == 'GET') {
@@ -52,11 +67,13 @@ if ($url == '/user/index' || $url == '/') {
 } elseif (preg_match('/\/produk\/delete\/(\d+)/', $url, $matches) && $requestMethod == 'GET') {
     $produkId = $matches[1];
     $produk->delete($produkId);
-} elseif ($url == 'order/index'){
+} elseif ($url == '/order/index'){
     $order->index();
 } elseif ($url == '/order/create' && $requestMethod == 'GET'){
     $order->create();
-} elseif (preg_match('/\/order\/edit\/(\d+)/', $url, $matches) && $requestMethod == 'GET') {
+}   elseif ($url == '/order/store' && $requestMethod == 'POST') {
+    $order->store();
+}   elseif (preg_match('/\/order\/edit\/(\d+)/', $url, $matches) && $requestMethod == 'GET') {
     $orderId = $matches[1];
     $order->edit($orderId);
 } elseif (preg_match('/\/order\/update\/(\d+)/', $url, $matches) && $requestMethod == 'POST') {
