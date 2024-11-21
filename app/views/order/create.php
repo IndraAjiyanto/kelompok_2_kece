@@ -17,7 +17,14 @@
     };
     ?>
     </select>
-    <label for="status">Status:</label>
-    <input type="text" name="status" id="status" required>
+    <label for="status">Produk:</label>
+        <select name="status" id="status" required>
+            <option value="" disabled selected> Pilih Status </option>
+            <option value="Pesanan berhasil dipesan">Pesanan berhasil dipesan</option>
+            <option value="Pesanan sedang dikemas">Pesanan sedang dikemas</option>
+            <option value="Pesanan sedang dikirim">Pesanan sedang dikirim</option>
+            <option value="Pesanan diterima">Pesanan diterima</option>
+            <option value="Pesanan dibatalkan">Pesanan dibatalkan</option>
+        </select>
     <button type="submit">Simpan</button>
 </form>
