@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 
 <form action="/produk/update/<?php echo $produk['id_produk']?>" method="POST" class="border p-4 rounded shadow-sm bg-light">
@@ -37,5 +36,3 @@
             <button type="submit" class="btn btn-primary fw-bold">Update</button>
             <a href="/produk/index" class="btn btn-secondary fw-bold">Kembali</a>
         </form>
-=======
->>>>>>> main

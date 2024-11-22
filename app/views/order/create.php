@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <!-- app/views/order/create.php -->
         <form action="/order/store" method="POST" class="border p-4 rounded shadow-sm bg-light">
             <div class="mb-3">
@@ -38,5 +38,3 @@
             <a href="/order/index" class="btn btn-secondary fw-bold">Batal</a>
         </form>
     </div>
-=======
->>>>>>> main

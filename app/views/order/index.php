@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <!-- app/views/order/index.php -->
 <thead>
             <tr>
@@ -21,5 +21,3 @@
                 </tr>
             <?php endforeach; ?>
         </tbody>
-=======
->>>>>>> main

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
 <form action="/produk/store" method="POST" class="border p-4 rounded shadow-sm bg-light">
 <label for="kategori" class="form-label fw-bold">Pilih Kategori :</label>
@@ -36,5 +36,4 @@
             <button type="submit" class="btn btn-primary fw-bold">Simpan</button>
             <a href="/produk/index" class="btn btn-secondary fw-bold">Batal</a>
         </form>
-=======
->>>>>>> main
+
