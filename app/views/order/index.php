@@ -1,4 +1,4 @@
-<!-- app/views/user/index.php -->
+<!-- app/views/order/index.php -->
 <thead>
             <tr>
                 <th><center>Nama Produk</center></th>
