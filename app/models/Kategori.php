@@ -69,5 +69,5 @@ class Kategori {
         $query->execute();
         return $query->fetchColumn();
     }
-
 }
+
