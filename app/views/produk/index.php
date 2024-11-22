@@ -16,7 +16,7 @@
                     <td><?= htmlspecialchars($produk['nama_produk']) ?></td>
                     <td><?= htmlspecialchars($produk['deskripsi']) ?></td>
                     <td><?= htmlspecialchars($produk['harga']) ?></td>
-                    <td><?= htmlspecialchars($user->findUser ($produk['id_user'])) ?></td>
+                    <td><?= htmlspecialchars($user->findNama($produk['id_user'])) ?></td>
                     <td>
                         <a href="/produk/edit/<?php echo $produk['id_produk']; ?>" class="btn btn-warning btn-sm fw-bold">Edit</a>
                         <a href="/produk/delete/<?php echo $produk['id_produk']; ?>" class="btn btn-danger btn-sm fw-bold" onclick="return confirm('Are you sure?')">Delete</a>
