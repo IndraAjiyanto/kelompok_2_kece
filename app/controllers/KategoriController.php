@@ -39,7 +39,7 @@ class KategoriController {
     // Show the edit form with the kategori data
     public function edit($id) {
         $kategori = $this->KategoriModel->find($id); // Assume find() gets kategori by ID
-        $judul = "Kategori";
+        $judul = "kategori";
         $metode = "Edit";
         require_once '../app/views/template/navbar.php';
         require_once '../app/views/template/form.php';
