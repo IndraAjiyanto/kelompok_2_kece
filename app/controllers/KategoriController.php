@@ -9,7 +9,7 @@ class KategoriController {
 
     public function index() {
         $kategori = $this->KategoriModel->getAllKategori();
-        $judul = "Kategori";
+        $judul = "kategori";
 
         require_once '../app/views/template/navbar.php';
         require_once '../app/views/template/table.php';
@@ -20,7 +20,7 @@ class KategoriController {
 
 
     public function create() {
-        $judul = "Kategori";
+        $judul = "kategori";
         $metode = "Tambah";
         require_once '../app/views/template/navbar.php';
         require_once '../app/views/template/form.php';
@@ -63,8 +63,7 @@ class KategoriController {
         $isUsedInProduk = $this->KategoriModel->checkIfKategoriInProduk($id);
         
         if ($isUsedInProduk > 0) {
-        
-            header("Location: /kategori/index"); 
+            echo "<script> alert('data ini tidak bisa dihapus karena data ini masih dibutuhkan dengan tabel yang lain!!'); window.location.href = '/kategori/index'; </script>";
         } else {
         
             $deleted = $this->KategoriModel->delete($id);

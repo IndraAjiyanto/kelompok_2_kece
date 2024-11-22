@@ -1,5 +1,5 @@
 
-<h2>Edit Kategori</h2>
+
 <form action="/kategori/update/<?php echo $kategori['id_kategori']; ?>" method="POST" class="border p-4 rounded shadow-sm bg-light">
             <div class="mb-3">
                 <label for="nama_kategori" class="form-label fw-bold">Nama kategori:</label>
