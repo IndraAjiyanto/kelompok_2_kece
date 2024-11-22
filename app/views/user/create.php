@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
         
         <form action="/user/store" method="POST" class="border p-4 rounded shadow-sm bg-light">
@@ -23,3 +24,5 @@
     </div>
     <!-- Bootstrap JS -->
    
+=======
+>>>>>>> main

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
         
         <form action="/user/update/<?php echo $user['id_user']; ?>" method="POST" class="border p-4 rounded shadow-sm bg-light">
@@ -25,3 +26,5 @@
 
 
 
+=======
+>>>>>>> main

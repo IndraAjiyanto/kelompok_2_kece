@@ -6,7 +6,10 @@ require_once 'app/controllers/UserController.php';
 require_once 'app/controllers/KategoriController.php';
 require_once 'app/controllers/ProdukController.php';
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 $controller = new UserController();
 $order = new OrderController();
 $produk = new ProdukController();

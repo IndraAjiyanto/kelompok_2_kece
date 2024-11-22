@@ -18,6 +18,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
+<<<<<<< HEAD
             <a class="nav-link <?php echo ($judul == "user") ? "active" : ""; ?>" href="/user/index">User</a>
           </li>
           <li class="nav-item">
@@ -28,6 +29,18 @@
           </li>
           <li class="nav-item">
             <a class="nav-link <?php echo ($judul == "order" ) ? "active" : "" ?>" href="/order/index">Order</a>
+=======
+          <a class="nav-link <?php echo ($judul == "user") ? "active" : ""; ?>" href="/user/index">User</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <?php echo ($judul == "kategori") ? "active" : ""; ?>" href="/kategori/index">Kategori</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <?php echo ($judul == "produk") ? "active" : ""; ?>" href="/produk/index">Produk</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <?php echo ($judul == "order") ? "active" : ""; ?>" href="/order/index">Order</a>
+>>>>>>> main
           </li>
         </ul>
       </div>
