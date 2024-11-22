@@ -1,8 +1,5 @@
 # Praktikum Pemgrograman Web 2 - Politeknik Negeri Cilacap
 
-## Informasi Umum
-Proyek ini merupakan bagian dari kegiatan Praktisi Mengajar batch 5, antara [Politeknik Negeri Cilacap](https://pnc.ac.id/) dengan praktisi [I Nyoman Indra Darmawan](https://nyoman.id) untuk mata kuliah Praktikum Pemgrograman Web 2
-
 ## Deskripsi Proyek
 Proyek ini merupakan aplikasi web sederhana yang menerapkan arsitektur Model-View-Controller (MVC) dengan menggunakan konsep Pemrograman Berorientasi Objek (OOP). Aplikasi ini adalah sebagai contoh yang dapat gunakan sebagai acuan bagi masing-masing kelompok dalam mengerjakan tugas.
 
@@ -76,20 +73,5 @@ mvc-sample/
 
     - Akses Proyek: Buka browser dan akses aplikasi di http://mvc-sample.local.
 
-3. **Jika menggunakan perintah php -S localhost:8080:**
-    Saat menjalankan aplikasi PHP dengan perintah ```php -S localhost:8080```
-    server built-in PHP hanya memahami struktur dasar dan tidak mendukung pengaturan URL rewriting seperti pada file ```.htaccess``` di Apache. Oleh karena itu, aplikasi tidak dapat menangani rute dinamis dengan benar dan akan menampilkan ```"Not Found"``` saat mengakses URL selain ```index.php``` langsung.
-
-    Langkah yang harus diikuti:
-    - Navigasi ke direktori ```mvc-sample``` dan jalankan server dari dalam folder ```public```, agar ```index.php``` langsung menjadi entry point untuk aplikasi:
-        ```php
-        cd mvc-sample/public
-        php -S localhost:8080
-        ```
-    - Akses Proyek: Buka browser dan akses aplikasi di ```localhost:8080```.
-
-## Kontribusi
-Jika ingin berkontribusi pada proyek ini, silakan buat branch baru dan kirim pull request.
-
-## Lisensi
-Proyek ini dilisensikan under MIT License.
+3. **Jika menggunakan localhost local**
+   ubah kode yang ada di file <a href="https://github.com/IndraAjiyanto/kelompok_2_pweb/blob/main/config/database.php">database.php</a> jika kamu ingin menggunakan database di local komputermu. silahkan import database yang sudah kami siapkan jika ingin mengakses database secara lokal ().
