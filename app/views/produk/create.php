@@ -1,27 +1,35 @@
-<!-- app/views/produk/create.php -->
-<h2>Tambah Produk Baru</h2>
-<form action="/produk/store" method="POST">
-<label for="kategori">Choose a fruit:</label>
-    <select id="kategori" name="id_kategori">
+
+<form action="/produk/store" method="POST" class="border p-4 rounded shadow-sm bg-light">
+<label for="kategori" class="form-label fw-bold">Pilih Kategori :</label>
+    <select id="kategori" name="id_kategori" class="form-control">
         <?php foreach($kategori as $row){?>
-        <option value="<?php echo $row['id_kategori']?>"><?php echo $row['nama_kategori']?></option>
+        <option value="<?php echo $row['id_kategori']?>" class="form-control"><?php echo $row['nama_kategori']?></option>
         <?php
     };
     ?>
     </select>
-    <label for="nama_produk">Nama Produk:</label>
-    <input type="text" name="nama_produk" id="nama_produk" required>
-    <label for="deskripsi">Deskripsi:</label>
-    <input type="text" name="deskripsi" id="deskripsi" required>
-    <label for="harga">Harga:</label>
-    <input type="text" name="harga" id="harga" required>
-    <label for="user">Choose a fruit:</label>
-    <select id="user" name="id_user">
+            <div class="mb-3">
+                <label for="nama_produk" class="form-label fw-bold">Nama Produk :</label>
+                <input type="text" name="nama_produk" id="nama_produk" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="deskripsi" class="form-label fw-bold">Deskripsi :</label>
+                <input type="text" name="deskripsi" id="deskripsi" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="harga" class="form-label fw-bold">Harga :</label>
+                <input type="text" name="harga" id="harga" class="form-control" required>
+            </div>
+            <div class="mb-3">
+            <label for="user" class="form-label fw-bold">Pilih User :</label>
+    <select id="user" name="id_user" class="form-control">
         <?php foreach($user as $row){?>
-        <option value="<?php echo $row['id_user']?>"><?php echo $row['nama']?></option>
+        <option value="<?php echo $row['id_user']?>" class="form-control"><?php echo $row['nama']?></option>
         <?php
     };
     ?>
     </select>
-    <button type="submit">Simpan</button>
-</form>
+            </div>
+            <button type="submit" class="btn btn-primary fw-bold">Simpan</button>
+            <a href="/produk/index" class="btn btn-secondary fw-bold">Batal</a>
+        </form>

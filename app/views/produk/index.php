@@ -1,13 +1,27 @@
-<!-- app/views/user/index.php -->
-<h2>Daftar Produk</h2>
-<a href="/produk/create">Tambah Produk Baru</a>
-<ul>
-    <?php foreach ($produks as $produk): ?>
-        <div>
-            <p><?= htmlspecialchars($kategori->findKategori($produk['id_kategori'])) ?> - <?= htmlspecialchars($produk['nama_produk']) ?> - <?= htmlspecialchars($produk['deskripsi']) ?> - <?= htmlspecialchars($produk['harga']) ?> - <?= htmlspecialchars($user->findUser ($produk['id_user'])) ?>
-            <a href="/produk/edit/<?php echo $produk['id_produk']; ?>">Edit</a> |
-            <a href="/produk/delete/<?php echo $produk['id_produk']; ?>" onclick="return confirm('Are you sure?')">Delete</a>
-            </p>
-        </div>
-    <?php endforeach; ?>
-</ul>
+
+        <thead>
+            <tr>
+                <th><center>Kategori</center></th>
+                <th><center>Nama Produk</center></th>
+                <th><center>Deskripsi</center></th>
+                <th><center>Harga</center></th>
+                <th><center>Nama Penjual</center></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($produks as $produk): ?>
+                <tr>
+                    <td><?= htmlspecialchars($kategori->findKategori($produk['id_kategori'])) ?></td>
+                    <td><?= htmlspecialchars($produk['nama_produk']) ?></td>
+                    <td><?= htmlspecialchars($produk['deskripsi']) ?></td>
+                    <td><?= htmlspecialchars($produk['harga']) ?></td>
+                    <td><?= htmlspecialchars($user->findUser ($produk['id_user'])) ?></td>
+                    <td>
+                        <a href="/produk/edit/<?php echo $produk['id_produk']; ?>" class="btn btn-warning btn-sm fw-bold">Edit</a>
+                        <a href="/produk/delete/<?php echo $produk['id_produk']; ?>" class="btn btn-danger btn-sm fw-bold" onclick="return confirm('Are you sure?')">Delete</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
