@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
         <thead>
             <tr>
@@ -24,3 +25,5 @@
             <?php endforeach; ?>
         </tbody>
 
+=======
+>>>>>>> main
