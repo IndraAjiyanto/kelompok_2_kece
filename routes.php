@@ -11,6 +11,10 @@ require_once 'app/controllers/KategoriController.php';
 require_once 'app/controllers/ProdukController.php';
 >>>>>>> main
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> main
 $controller = new UserController();
 $order = new OrderController();
 $produk = new ProdukController();
