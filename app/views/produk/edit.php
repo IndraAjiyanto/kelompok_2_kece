@@ -1,11 +1,11 @@
 
 
-<form action="/produk/update/<?php echo $user['id_user']; ?>" method="POST" class="border p-4 rounded shadow-sm bg-light">
+<form action="/produk/update/<?php echo $produk['id_produk']?>" method="POST" class="border p-4 rounded shadow-sm bg-light">
     <div class="mb-3">
     <label for="kategori" class="form-label fw-bold">Pilih Kategori :</label>
     <select id="kategori" name="id_kategori" class="form-control">
         <?php foreach($kategori as $row){?>
-        <option value="<?php echo $row['id_kategori']?>" class="form-control"><?php echo $row['nama_kategori']?></option>
+        <option value="<?php echo $row['id_kategori']?>" <?php echo ($row['id_kategori'] == $produk['id_kategori']) ? "selected" : ""?> class="form-control" ><?php echo $row['nama_kategori']?></option>
         <?php
     };
     ?>
@@ -27,11 +27,12 @@
             <label for="user" class="form-label fw-bold">Pilih User :</label>
     <select id="user" name="id_user" class="form-control">
         <?php foreach($user as $row){?>
-        <option value="<?php echo $row['id_user']?>" class="form-control"><?php echo $row['nama']?></option>
+        <option value="<?php echo $row['id_user']?>" <?php echo ($row['id_user'] == $produk['id_user']) ? "selected" : ""?> class="form-control"><?php echo $row['nama']?></option>
         <?php
     };
     ?>
     </select>
+</div>
             <button type="submit" class="btn btn-primary fw-bold">Update</button>
             <a href="/produk/index" class="btn btn-secondary fw-bold">Kembali</a>
         </form>

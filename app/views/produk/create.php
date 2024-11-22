@@ -1,7 +1,8 @@
 
 <form action="/produk/store" method="POST" class="border p-4 rounded shadow-sm bg-light">
 <label for="kategori" class="form-label fw-bold">Pilih Kategori :</label>
-    <select id="kategori" name="id_kategori" class="form-control">
+    <select id="kategori" name="id_kategori" class="form-control" required>
+    <option value="" disabled selected> Pilih Kategori :</option>
         <?php foreach($kategori as $row){?>
         <option value="<?php echo $row['id_kategori']?>" class="form-control"><?php echo $row['nama_kategori']?></option>
         <?php
@@ -23,6 +24,7 @@
             <div class="mb-3">
             <label for="user" class="form-label fw-bold">Pilih User :</label>
     <select id="user" name="id_user" class="form-control">
+    <option value="" disabled selected> Pilih User :</option>
         <?php foreach($user as $row){?>
         <option value="<?php echo $row['id_user']?>" class="form-control"><?php echo $row['nama']?></option>
         <?php

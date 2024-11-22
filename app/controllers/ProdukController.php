@@ -78,7 +78,7 @@ class ProdukController {
         
         if ($isUsedInOrder > 0) {
             // Jika produk masih digunakan di tabel order, tampilkan pesan error
-            header("Location: /produk/index"); 
+            echo "<script> alert('data ini tidak bisa dihapus karena data ini masih dibutuhkan dengan tabel yang lain!!'); window.location.href = '/produk/index'; </script>";
         } else {
             // Jika produk tidak digunakan, lanjutkan dengan penghapusan
             $deleted = $this->produkModel->delete($id_produk);
