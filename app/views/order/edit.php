@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- app/views/order/edit.php -->
 
         <form action="/order/update/<?php echo $order['id_order']; ?>" method="POST" class="border p-4 rounded shadow-sm bg-light">
@@ -36,3 +37,5 @@
         </form>
     </div>
 
+=======
+>>>>>>> main
