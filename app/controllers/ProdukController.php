@@ -19,14 +19,25 @@ class ProdukController {
         $produks = $this->produkModel->getAllProduks();
         $kategori = $this->kategoriModel;
         $user = $this->userModel;
+        $judul = "produk";
+        require_once '../app/views/template/navbar.php';
+        require_once '../app/views/template/table.php';
         require_once '../app/views/produk/index.php';
+        require_once '../app/views/template/tutup_table.php';
+        require_once '../app/views/template/footer.php';
 
     }
 
     public function create() {
         $kategori = $this->kategoriModel->getAllKategori();
         $user = $this->userModel->getAllUsers();
+        $judul = "produk";
+        $metode = "Tambah";
+        require_once '../app/views/template/navbar.php';
+        require_once '../app/views/template/form.php';
         require_once '../app/views/produk/create.php';
+        require_once '../app/views/template/tutup_form.php';
+        require_once '../app/views/template/footer.php';
     }
 
     public function store() {
@@ -43,7 +54,13 @@ class ProdukController {
         $produk = $this->produkModel->find($id_produk);
         $kategori = $this->kategoriModel->getAllKategori(); // Assume find() gets produk by ID
         $user = $this->userModel->getAllUsers(); // Assume find() gets produk by ID
-        require_once __DIR__ . '/../views/produk/edit.php';
+        $judul = "produk";
+        $metode = "Edit";
+        require_once '../app/views/template/navbar.php';
+        require_once '../app/views/template/form.php';
+        require_once '../app/views/produk/edit.php';
+        require_once '../app/views/template/tutup_form.php';
+        require_once '../app/views/template/footer.php';
     }
 
     // Process the update request
@@ -61,7 +78,7 @@ class ProdukController {
         
         if ($isUsedInOrder > 0) {
             // Jika produk masih digunakan di tabel order, tampilkan pesan error
-            header("Location: /produk/index"); 
+            echo "<script> alert('data ini tidak bisa dihapus karena data ini masih dibutuhkan dengan tabel yang lain!!'); window.location.href = '/produk/index'; </script>";
         } else {
             // Jika produk tidak digunakan, lanjutkan dengan penghapusan
             $deleted = $this->produkModel->delete($id_produk);
