@@ -3,18 +3,12 @@
 
 require_once 'app/controllers/OrderController.php';
 require_once 'app/controllers/UserController.php';
-
-
-
-$controller = new UserController();
-
-$order = new OrderController();
-
 require_once 'app/controllers/ProdukController.php';
-
-$produk = new ProdukController();
 require_once 'app/controllers/KategoriController.php';
 
+$controller = new UserController();
+$order = new OrderController();
+$produk = new ProdukController();
 $kategori = new KategoriController();
 
 

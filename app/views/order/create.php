@@ -2,8 +2,8 @@
         <form action="/order/store" method="POST" class="border p-4 rounded shadow-sm bg-light">
             <div class="mb-3">
                 <label for="produk" class="form-label fw-bold">Pilih Produk:</label>
-                <select id="produk" name="id_produk" class="form-control">
-                <option value="" disabled selected> Pilih Produk:</option>
+                <select id="produk" name="id_produk" class="form-control" required>
+                <option value="" disabled selected> Pilih Produk</option>
                     <?php foreach($produk as $row){?>
                         <option value="<?php echo $row['id_produk']?>" class="form-control"><?php echo $row['nama_produk']?></option>
                     <?php
@@ -13,7 +13,7 @@
             </div>
             <div class="mb-3">
                 <label for="user" class="form-label fw-bold">Pilih Pembeli:</label>
-                <select id="user" name="id_user" class="form-control">
+                <select id="user" name="id_user" class="form-control" required>
                 <option value="" disabled selected> Pilih Pembeli </option>
                     <?php foreach($user as $row){?>
                         <option value="<?php echo $row['id_user']?>" class="form-control"><?php echo $row['nama']?></option>
