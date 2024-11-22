@@ -19,13 +19,24 @@ class OrderController {
         $orders = $this->orderModel->getAllOrders();
         $produk = $this->produkModel;
         $user = $this->userModel;
+        $judul = "order";
+        require_once '../app/views/template/navbar.php';
+        require_once '../app/views/template/table.php';
         require_once '../app/views/order/index.php';
+        require_once '../app/views/template/tutup_table.php';
+        require_once '../app/views/template/footer.php';
     }
 
     public function create() {
         $produk = $this->produkModel->getAllProduks();
         $user = $this->userModel->getAllUsers();
+        $judul = "order";
+        $metode = "Tambah";
+        require_once '../app/views/template/navbar.php';
+        require_once '../app/views/template/form.php';
         require_once '../app/views/order/create.php';
+        require_once '../app/views/template/tutup_form.php';
+        require_once '../app/views/template/footer.php';
     }
 
     public function store() {
@@ -40,7 +51,14 @@ class OrderController {
         $order = $this->orderModel->find($id); // Assume find() gets user by ID
         $produk = $this->produkModel->getAllProduks();
         $user = $this->userModel->getAllUsers();
+        $judul = "order";
+        $metode = "Edit";
+
+        require_once '../app/views/template/navbar.php';
+        require_once '../app/views/template/form.php';
         require_once __DIR__ . '/../views/order/edit.php';
+        require_once '../app/views/template/tutup_form.php';
+        require_once '../app/views/template/footer.php';
     }
 
     // Process the update request
