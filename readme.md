@@ -38,8 +38,7 @@ mvc-sample/
 ## Cara Menjalankan Proyek
 1. **Clone Repository:**
    ```bash
-   git clone https://gitlab.com/praktisi-mengajar/politeknik-negeri-cilacap/pemrograman-web/mvc-sample.git
-   cd mvc-sample
+   git clone https://github.com/IndraAjiyanto/kelompok_2_pweb.git
    ```
 2. **Jika menggunakan virtual host pada apache xampp:**
    Untuk menjalankan proyek ini pada Apache XAMPP, Anda perlu membuat virtual host:
@@ -72,6 +71,3 @@ mvc-sample/
     - Restart Apache: Setelah konfigurasi selesai, restart Apache melalui XAMPP Control Panel.
 
     - Akses Proyek: Buka browser dan akses aplikasi di http://mvc-sample.local.
-
-3. **Jika menggunakan localhost local**
-   ubah kode yang ada di file <a href="https://github.com/IndraAjiyanto/kelompok_2_pweb/blob/main/config/database.php">database.php</a> jika kamu ingin menggunakan database di local komputermu. silahkan import database yang sudah kami siapkan jika ingin mengakses database secara lokal ().
