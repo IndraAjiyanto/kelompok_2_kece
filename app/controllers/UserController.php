@@ -71,9 +71,9 @@ class UserController {
         
         if ($isUsedInOrder > 0) {
             // Jika user masih digunakan di tabel order, tampilkan pesan error
-            header("Location: /user/index"); 
+            echo "<script> alert('data ini tidak bisa dihapus karena data ini masih dibutuhkan dengan tabel yang lain!!'); window.location.href = '/user/index'; </script>";
         } elseif ($isUsedInProduk > 0){
-            header("Location: /user/index");
+            echo "<script> alert('data ini tidak bisa dihapus karena data ini masih dibutuhkan dengan tabel yang lain!!'); window.location.href = '/user/index'; </script>";
         }
         else {
             // Jika user tidak digunakan, lanjutkan dengan penghapusan
